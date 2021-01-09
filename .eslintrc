@@ -15,5 +15,8 @@
                 "trailingComma": "es5"
             }
         ]
+    },
+    "parserOptions": {
+        "sourceType": "module"
     }
 }
