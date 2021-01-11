@@ -22,9 +22,5 @@
     "webpack": "^5.12.2",
     "webpack-cli": "^4.3.1"
   },
-  "dependencies": {
-    "d3": "^6.3.1",
-    "ify-loader": "^1.1.0",
-    "plotly.js-dist": "^1.58.4"
-  }
+  "dependencies": {}
 }
