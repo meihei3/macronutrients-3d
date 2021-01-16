@@ -3,6 +3,9 @@
         "browser": true,
         "es6": true
     },
+    "globals": {
+        "Plotly": false
+    },
     "extends": [
         "eslint:recommended",
         "plugin:prettier/recommended"
