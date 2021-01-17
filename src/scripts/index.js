@@ -67,4 +67,8 @@ const layout = {
   },
 };
 
-Plotly.newPlot('app', data, layout);
+const config = {
+  responsive: true,
+};
+
+Plotly.newPlot('app', data, layout, config);
