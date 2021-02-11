@@ -1,3 +1,2 @@
-import { appendData } from './PlotlyJs/PlotlyJs';
-
-appendData('test', 1, 1, 1);
+import './PlotlyJs/PlotlyJs';
+import './DOM/items';

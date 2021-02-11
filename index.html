@@ -7,12 +7,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+      .link-card {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <main class="container">
       <h1 class="blue-grey-text text-darken-3">macronutrients-3d</h1>
       <p class="blue-grey-text">三大栄養素を3D空間にプロットする</p>
-      <div id="app" style="border: 1px solid #555; height: 300px;"></div>
+      <div id="app"></div>
+
+      <div id="items" class="row">
+        <div class="col s12 m4">
+          <a href="#" class="card horizontal link-card blue-grey-text">aaa</a>
+        </div>
+        <div class="col s12 m4">
+          <a href="#" class="card link-card blue-grey-text">bbb</a>
+        </div>
+        <div class="col s12 m4">
+          <a href="#" class="card link-card blue-grey-text">ccc</a>
+        </div>
+      </div>
     </main>
     <script src="./dist/main.js"></script>
   </body>
