@@ -8,3 +8,17 @@ export function createAppendData(graphEl, trace_idx) {
     Plotly.redraw(graphEl);
   };
 }
+
+export function createDropData(graphEl, trace_idx) {
+  return (text) => {
+    const index = graphEl.data[trace_idx].text.indexOf(text);
+    if (index >= 0) {
+      graphEl.data[trace_idx].text.splice(index, 1);
+      graphEl.data[trace_idx].x.splice(index, 1);
+      graphEl.data[trace_idx].y.splice(index, 1);
+      graphEl.data[trace_idx].z.splice(index, 1);
+
+      Plotly.redraw(graphEl);
+    }
+  };
+}
