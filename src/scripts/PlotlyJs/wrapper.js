@@ -1,5 +1,17 @@
+/**
+ * appendData関数を生成する．
+ *
+ * @param {HTMLElement} graphEl グラフのElement
+ * @param {Int} trace_idx 対象traceのindex
+ */
 export function createAppendData(graphEl, trace_idx) {
-  return (text, x, y, z) => {
+  /**
+   * グラフに要素を追加する．
+   *
+   * @function appendData
+   * @param {String} text 対象のテキスト
+   */
+  const f = (text, x, y, z) => {
     graphEl.data[trace_idx].text.push(text);
     graphEl.data[trace_idx].x.push(x);
     graphEl.data[trace_idx].y.push(y);
@@ -7,10 +19,24 @@ export function createAppendData(graphEl, trace_idx) {
 
     Plotly.redraw(graphEl);
   };
+
+  return f;
 }
 
+/**
+ * dropData関数を生成する．
+ *
+ * @param {HTMLElement} graphEl グラフのElement
+ * @param {Int} trace_idx 対象traceのindex
+ */
 export function createDropData(graphEl, trace_idx) {
-  return (text) => {
+  /**
+   * グラフから要素を削除する．textが重複する場合上手く動作しないと思われる．
+   *
+   * @function dropData
+   * @param {String} text 対象のテキスト
+   */
+  const dropData = (text) => {
     const index = graphEl.data[trace_idx].text.indexOf(text);
     if (index >= 0) {
       graphEl.data[trace_idx].text.splice(index, 1);
@@ -21,4 +47,6 @@ export function createDropData(graphEl, trace_idx) {
       Plotly.redraw(graphEl);
     }
   };
+
+  return dropData;
 }
