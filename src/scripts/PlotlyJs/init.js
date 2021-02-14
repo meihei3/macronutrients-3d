@@ -10,6 +10,16 @@ const hovertemplate =
   `<span>Carbohydrates: %{y} g</span><br>` +
   `<span>Fat: %{z} g</span>`;
 
+const trace0 = {
+  text: ['origin'],
+  x: [0],
+  y: [0],
+  z: [0],
+  mode: 'markers',
+  opacity: 0,
+  type: 'scatter3d',
+};
+
 const trace1 = {
   text: [],
   x: [],
@@ -21,7 +31,7 @@ const trace1 = {
   type: 'scatter3d',
 };
 
-const data = [trace1];
+const data = [trace0, trace1];
 
 const layout = {
   title: 'Macronutrients',
@@ -54,7 +64,6 @@ const layout = {
       autorange: true,
     },
   },
-
   hoverlabel: {
     bgcolor: '#FFF',
     font: {
@@ -67,6 +76,7 @@ const layout = {
     b: 0,
     t: 0,
   },
+  showlegend: false,
 };
 
 const config = {
