@@ -43,13 +43,11 @@ const createSwitchDisplayData = (el) => {
 
 data.forEach((el) => {
   const a = document.createElement('a');
-  a.classList.add('card', 'horizontal', 'link-card', 'blue-grey-text');
+  a.classList.add('collection-item', 'waves-effect', 'waves-teal');
   a.innerText = el.name;
 
-  const div = document.createElement('div');
-  div.classList.add('col', 's12', 'm4');
-  div.appendChild(a);
-  div.addEventListener('click', createSwitchDisplayData(el));
+  a.addEventListener('click', createSwitchDisplayData(el));
+  a.addEventListener('click', () => a.classList.toggle('active'));
 
-  document.getElementById('items').appendChild(div);
+  document.getElementById('items').appendChild(a);
 });

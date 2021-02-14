@@ -1,6 +1,8 @@
 // 基本的にmaterialize.cssを使う
 // run: `npx gulp`
 
-.link-card {
-  display: block;
+.title {
+  @media only screen and (max-device-width: 480px) {
+    font-size: 2.5rem;
+  }
 }
