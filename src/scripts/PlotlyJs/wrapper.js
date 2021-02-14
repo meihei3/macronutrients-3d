@@ -10,6 +10,9 @@ export function createAppendData(graphEl, trace_idx) {
    *
    * @function appendData
    * @param {String} text 対象のテキスト
+   * @param {Float} x タンパク質
+   * @param {Float} y 炭水化物
+   * @param {Float} z 脂質
    */
   const f = (text, x, y, z) => {
     graphEl.data[trace_idx].text.push(text);

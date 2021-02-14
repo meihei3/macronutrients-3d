@@ -1,27 +1,37 @@
 const color_palette = {
-  p: '#F88',
-  c: '#8F8',
-  f: '#FF8',
+  p: '#F00',
+  c: '#0F0',
+  f: '#FF0',
 };
 
 const hovertemplate =
   '<b>%{text}</b><br><br>' +
-  `<span style="color:${color_palette.p}">Protein: %{x} g</span><br>` +
-  `<span style="color:${color_palette.c}">Carbohydrates: %{y} g</span><br>` +
-  `<span style="color:${color_palette.f}">Fat: %{z} g</span>`;
+  `<span>Protein: %{x} g</span><br>` +
+  `<span>Carbohydrates: %{y} g</span><br>` +
+  `<span>Fat: %{z} g</span>`;
+
+const trace0 = {
+  text: ['origin'],
+  x: [0],
+  y: [0],
+  z: [0],
+  mode: 'markers',
+  opacity: 0,
+  type: 'scatter3d',
+};
 
 const trace1 = {
-  text: ['a', 'b', 'c', 'd', 'e'],
-  x: [5, 3, 8, 9, 4],
-  y: [1.2, 7.2, 4.2, 3.2, 8.2],
-  z: [5.2, 0, 8.1, 9.2, 2.4],
+  text: [],
+  x: [],
+  y: [],
+  z: [],
   mode: 'markers',
   opacity: 0.5,
   hovertemplate: hovertemplate,
   type: 'scatter3d',
 };
 
-const data = [trace1];
+const data = [trace0, trace1];
 
 const layout = {
   title: 'Macronutrients',
@@ -54,11 +64,10 @@ const layout = {
       autorange: true,
     },
   },
-
   hoverlabel: {
-    bgcolor: '#999',
+    bgcolor: '#FFF',
     font: {
-      color: '#FFF',
+      color: '#555',
     },
   },
   margin: {
@@ -67,6 +76,7 @@ const layout = {
     b: 0,
     t: 0,
   },
+  showlegend: false,
 };
 
 const config = {

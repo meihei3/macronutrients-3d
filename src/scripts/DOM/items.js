@@ -1,14 +1,15 @@
-// import getData from '../utils/parser';
+import getData from '../utils/parser';
 import { appendData, dropData } from '../PlotlyJs/PlotlyJs';
 
 // 外部からデータをロードしたい
-const data = [{ name: 'test', x: 5, y: 5, z: 5 }];
+const data_json_url =
+  'https://raw.githubusercontent.com/yameholo/macronutrients-3d/master/dist/data.json';
 
 const createSwitchDisplayData = (el) => {
   let flg = true;
   return () => {
     if (flg) {
-      appendData(el.name, el.x, el.y, el.z);
+      appendData(el.name, el.p, el.f, el.c);
     } else {
       dropData(el.name);
     }
@@ -16,15 +17,20 @@ const createSwitchDisplayData = (el) => {
   };
 };
 
-data.forEach((el) => {
-  const a = document.createElement('a');
-  a.classList.add('card', 'horizontal', 'link-card', 'blue-grey-text');
-  a.innerText = el.name;
+const createItems = (data) => {
+  data.forEach((el) => {
+    console.log(el);
+    const a = document.createElement('a');
+    a.classList.add('collection-item', 'waves-effect', 'waves-teal');
+    a.innerText = el.name;
 
-  const div = document.createElement('div');
-  div.classList.add('col', 's12', 'm4');
-  div.appendChild(a);
-  div.addEventListener('click', createSwitchDisplayData(el));
+    a.addEventListener('click', createSwitchDisplayData(el));
+    a.addEventListener('click', () => a.classList.toggle('active'));
 
-  document.getElementById('items').appendChild(div);
-});
+    document.getElementById('items').appendChild(a);
+  });
+};
+
+getData(data_json_url)
+  .then((data) => createItems(data))
+  .catch((err) => console.log(err));
