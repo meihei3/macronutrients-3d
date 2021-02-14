@@ -1,10 +1,15 @@
 import getData from '../utils/parser';
 import { appendData, dropData } from '../PlotlyJs/PlotlyJs';
 
-// 外部からデータをロードしたい
+// 外部からロードしたいJSONのURL
 const data_json_url =
   'https://raw.githubusercontent.com/yameholo/macronutrients-3d/master/dist/data.json';
 
+/**
+ * グラフに表示・非表示を行う関数を生成する
+ *
+ * @param {HTMLElement} el
+ */
 const createSwitchDisplayData = (el) => {
   let flg = true;
   return () => {
@@ -17,6 +22,11 @@ const createSwitchDisplayData = (el) => {
   };
 };
 
+/**
+ * データからアイテムリストのDOM生成する
+ *
+ * @param {Array} data
+ */
 const createItems = (data) => {
   data.forEach((el) => {
     console.log(el);
