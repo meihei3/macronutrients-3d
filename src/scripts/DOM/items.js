@@ -1,10 +1,6 @@
 import getData from '../utils/parser';
 import { appendData, dropData } from '../PlotlyJs/PlotlyJs';
 
-// 外部からロードしたいJSONのURL
-const data_json_url =
-  'https://raw.githubusercontent.com/yameholo/macronutrients-3d/master/dist/data.json';
-
 /**
  * グラフに表示・非表示を行う関数を生成する
  *
@@ -14,9 +10,9 @@ const createSwitchDisplayData = (el) => {
   let flg = true;
   return () => {
     if (flg) {
-      appendData(el.name, el.p, el.f, el.c);
+      appendData(el.foodName, el.prot, el.fat, el.chocdf);
     } else {
-      dropData(el.name);
+      dropData(el.foodName);
     }
     flg = !flg;
   };
@@ -26,21 +22,34 @@ const createSwitchDisplayData = (el) => {
  * データからアイテムリストのDOM生成する
  *
  * @param {Array} data
+ * @param {String} parent_id
  */
-const createItems = (data) => {
+const createItems = (data, parent_id) => {
   data.forEach((el) => {
     console.log(el);
     const a = document.createElement('a');
     a.classList.add('collection-item', 'waves-effect', 'waves-teal');
-    a.innerText = el.name;
+    a.innerText = el.foodName;
 
     a.addEventListener('click', createSwitchDisplayData(el));
     a.addEventListener('click', () => a.classList.toggle('active'));
 
-    document.getElementById('items').appendChild(a);
+    const parent = document.getElementById(parent_id);
+    console.log(parent);
+    parent.classList.add('collection');
+    parent.appendChild(a);
   });
 };
 
-getData(data_json_url)
-  .then((data) => createItems(data))
-  .catch((err) => console.log(err));
+window.addEventListener('DOMContentLoaded', () => {
+  // 現状問題ないが、念の為、親となるDOMのロードを待つ\
+  setTimeout(() => {
+    for (let i = 1; i < 19; i++) {
+      getData(
+        `https://raw.githubusercontent.com/yameholo/macronutrients-3d/master/dist/data-min/group${i}.json`
+      )
+        .then((data) => createItems(data, `food-group-${i}`))
+        .catch((err) => console.log(err));
+    }
+  }, 10);
+});
