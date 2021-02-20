@@ -3,7 +3,7 @@ import { appendData, dropData } from '../PlotlyJs/PlotlyJs';
 
 // 外部からロードしたいJSONのURL
 const data_json_url =
-  'https://raw.githubusercontent.com/yameholo/macronutrients-3d/master/dist/data.json';
+  'https://raw.githubusercontent.com/yameholo/macronutrients-3d/master/dist/data-min/group1.json';
 
 /**
  * グラフに表示・非表示を行う関数を生成する
@@ -14,9 +14,9 @@ const createSwitchDisplayData = (el) => {
   let flg = true;
   return () => {
     if (flg) {
-      appendData(el.name, el.p, el.f, el.c);
+      appendData(el.foodName, el.prot, el.fat, el.chocdf);
     } else {
-      dropData(el.name);
+      dropData(el.foodName);
     }
     flg = !flg;
   };
@@ -32,7 +32,7 @@ const createItems = (data) => {
     console.log(el);
     const a = document.createElement('a');
     a.classList.add('collection-item', 'waves-effect', 'waves-teal');
-    a.innerText = el.name;
+    a.innerText = el.foodName;
 
     a.addEventListener('click', createSwitchDisplayData(el));
     a.addEventListener('click', () => a.classList.toggle('active'));
