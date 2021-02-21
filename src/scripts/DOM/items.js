@@ -26,7 +26,6 @@ const createSwitchDisplayData = (el) => {
  */
 const createItems = (data, parent_id) => {
   data.forEach((el) => {
-    console.log(el);
     const a = document.createElement('a');
     a.classList.add('collection-item', 'waves-effect', 'waves-teal');
     a.innerText = el.foodName;
@@ -35,14 +34,13 @@ const createItems = (data, parent_id) => {
     a.addEventListener('click', () => a.classList.toggle('active'));
 
     const parent = document.getElementById(parent_id);
-    console.log(parent);
     parent.classList.add('collection');
     parent.appendChild(a);
   });
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  // 現状問題ないが、念の為、親となるDOMのロードを待つ\
+  // 現状問題ないが、念の為、親となるDOMのロードを待つ
   setTimeout(() => {
     for (let i = 1; i < 19; i++) {
       getData(
