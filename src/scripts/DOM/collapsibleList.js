@@ -39,5 +39,5 @@ const createList = () => {
 document.addEventListener('DOMContentLoaded', function () {
   createList();
   var elems = document.querySelectorAll('.collapsible');
-  var instances = M.Collapsible.init(elems);
+  var instances = M.Collapsible.init(elems); // eslint-disable-line
 });
