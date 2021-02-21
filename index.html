@@ -10,16 +10,73 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" href="./dist/main.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120056704-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-120056704-4');
+  </script>
+
 </head>
 
 <body>
+  <nav class="blue-grey lighten-1">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo title">macronutrients-3d</a>
+    </div>
+  </nav>
+
   <main class="container">
-    <h1 class="blue-grey-text text-darken-3 title">macronutrients-3d</h1>
     <p class="blue-grey-text">三大栄養素を3D空間にプロットする</p>
     <div id="app"></div>
 
     <ul id="items" class="collapsible"></ul>
   </main>
+
+  <footer class="page-footer blue-grey lighten-2">
+    <div class="container">
+      <ul class="row">
+        <li class="col l4 s12 center">
+          <a class="grey-text text-lighten-3 modal-trigger" href="#modal-policy">Privacy Policy</a>
+        </li>
+        <li class="col l4 s12 center">
+          <a class="grey-text text-lighten-3" href="https://github.com/yameholo/macronutrients-3d"
+            target="_blank">GitHub</a>
+        </li>
+        <li class="col l4 s12 center">
+          <a class="grey-text text-lighten-3" href="https://twitter.com/intent/tweet?text=@app1e_s"
+            target="_blank">Contact me via Twitter</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-copyright">
+      <div class="container center">© 2021 meihei</div>
+    </div>
+  </footer>
+
+  <div id="modal-policy" class="modal">
+    <div class="modal-content">
+      <h4 class="grey-text text-darken-2">プライバシーポリシー</h4>
+      <div class="grey-text text-darken-1">
+        当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を使用しています。
+        このGoogleアナリティクスはデータの収集のためにCookieを使用しています。
+        このデータは匿名で収集されており、個人を特定するものではありません。<br>
+        <br>
+        この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。
+        この規約に関しての詳細は<a href="https://marketingplatform.google.com/about/analytics/terms/jp/"
+          target="_blank">Googleアナリティクスサービス利用規約</a>のページや<a href="https://policies.google.com/technologies/ads?hl=ja"
+          target="_blank">Googleポリシー</a>と規約ページをご覧ください。
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="blue-grey-text modal-close waves-effect waves-green btn-flat">同意する</a>
+    </div>
+  </div>
+
   <script src="./dist/main.js"></script>
 </body>
 
